@@ -1,26 +1,30 @@
+version: '3.8'
 services:
-  client:
-    build: ./client
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:80"  # Map Nginx port to localhost
     depends_on:
       - backend
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "5000:5000"  # Map backend port
     depends_on:
       - mongo
-    environment:
-      MONGO_URL: mongodb://mongo:27017/mydatabase
 
   mongo:
-    image: mongo:4.4
+    image: mongo:latest
+    container_name: mongo
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Map MongoDB port
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
 
 volumes:
-  mongo-data:
+  mongo_data:

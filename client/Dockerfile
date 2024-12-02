@@ -1,28 +1,29 @@
-# Use an official Node runtime as a parent image
-FROM node:14-slim AS build
+# Use Node.js as the base image
+FROM node:16
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
-
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
-
-# Install application dependencies
-RUN npm install
-
-# Copy the rest of the application code to the container
-COPY . .
-
-FROM alpine:3.16.7
-
+# Set the working directory
 WORKDIR /app
 
-RUN apk update && apk add npm
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-COPY --from=build /usr/src/app /app
+# Install dependencies
+RUN npm install
 
-# Expose the port the app runs on
-EXPOSE 3000
+# Copy the entire frontend source code
+COPY . .
 
-# Define the command to run your app
-CMD ["npm", "start"]
+# Build the React app for production
+RUN npm run build
+
+# Use an Nginx base image to serve the React build
+FROM nginx:stable-alpine
+
+# Copy the React build into the Nginx web directory
+COPY --from=0 /app/build /usr/share/nginx/html
+
+# Expose the frontend port
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
