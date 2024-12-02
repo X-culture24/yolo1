@@ -2,10 +2,10 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./client
       dockerfile: Dockerfile
     ports:
-      - "3000:80"  # Map Nginx port to localhost
+      - "3000:3000"  # Map Nginx port to localhost
     depends_on:
       - backend
 
