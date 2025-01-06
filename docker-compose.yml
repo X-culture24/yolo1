@@ -1,28 +1,27 @@
 version: '3.8'
 services:
-  frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"  # Map Nginx port to localhost
-    depends_on:
-      - backend
-
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
     ports:
-      - "5000:5000"  # Map backend port
+      - "3000:3000"
     depends_on:
       - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/yoloDB
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
   mongo:
-    image: mongo:latest
-    container_name: mongo
+    image: mongo:6.0
     ports:
-      - "27017:27017"  # Map MongoDB port
+      - "27017:27017"
     volumes:
       - mongo_data:/data/db
 

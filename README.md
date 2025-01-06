@@ -13,3 +13,4 @@ Install the docker engine here:
 
 ## How to run the app
 Use vagrant up --provison command
+https://hooks.slack.com/services/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
