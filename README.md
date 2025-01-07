@@ -14,3 +14,16 @@ Install the docker engine here:
 ## How to run the app
 Use vagrant up --provison command
 https://hooks.slack.com/services/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
+stage-1-Ansible/
+├── Vagrantfile                # Vagrant configuration file
+├── playbook.yml               # Ansible playbook to provision the application stack
+├── roles/                     # Ansible roles
+│   ├── frontend/              # Role for frontend services
+│   │   ├── tasks/
+│   │   │   └── main.yml
+│   ├── backend/               # Role for backend services
+│   │   ├── tasks/
+│   │   │   └── main.yml
+│   ├── mongo/                 # Role for MongoDB services
+│       ├── tasks/
+│           └── main.yml
