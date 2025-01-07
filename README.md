@@ -16,7 +16,6 @@ Use vagrant up --provison command
 https://hooks.slack.com/services/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
 stage-1-Ansible/
 ├── Vagrantfile                # Vagrant configuration file
-├── playbook.yml               # Ansible playbook to provision the application stack
 ├── roles/                     # Ansible roles
 │   ├── frontend/              # Role for frontend services
 │   │   ├── tasks/

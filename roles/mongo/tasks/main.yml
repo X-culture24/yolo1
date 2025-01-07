@@ -1,8 +1,14 @@
+---
+# Mongo Role Configuration
+
+- name: Pull MongoDB container image
+  docker_image:
+    name: mongo:latest
+    source: pull
+
 - name: Run MongoDB container
   docker_container:
     name: mongo
-    image: mongo
+    image: mongo:latest
     ports:
       - "27018:27017"
-    volumes:
-      - "/home/vagrant/mongo_data:/data/db"

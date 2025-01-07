@@ -1,3 +1,6 @@
+---
+# Frontend Role Configuration
+
 - name: Pull frontend code
   git:
     repo: "{{ project_repo }}"

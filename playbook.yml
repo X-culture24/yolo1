@@ -1,9 +1,20 @@
-- name: Set up e-commerce application
+---
+- name: Set up e-commerce application with Terraform & Ansible
   hosts: localhost
   become: true
   vars:
     project_repo: "https://github.com/X-culture24/yolo.git"  # Replace with the actual repository URL
+    terraform_directory: "/home/lawrence/dev08/yolo/Terraform"  # Path to the Terraform directory for provisioning resources
   tasks:
+    # Run Terraform to provision resources
+    - name: Run Terraform to provision infrastructure
+      terraform:
+        path: "{{ terraform_directory }}"
+        state: present
+        variables:
+          project_repo: "{{ project_repo }}"
+    
+    # Install system dependencies for the application
     - name: Install dependencies
       apt:
         name:
@@ -11,16 +22,18 @@
           - python3-venv
         state: present
 
+    # Create a Python virtual environment
     - name: Create virtual environment for Python
       ansible.builtin.command: python3 -m venv /home/lawrence/venv
       args:
         creates: /home/lawrence/venv/bin/activate
 
+    # Install Docker SDK for Python in the virtual environment
     - name: Install Docker SDK for Python in virtual environment
       ansible.builtin.command: /home/lawrence/venv/bin/pip install docker
       environment:
         PATH: "/home/lawrence/venv/bin:{{ ansible_env.PATH }}"
-      
+
   roles:
     - frontend
     - backend
