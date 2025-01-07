@@ -1,0 +1,8 @@
+- name: Run MongoDB container
+  docker_container:
+    name: mongo
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - "/home/vagrant/mongo_data:/data/db"

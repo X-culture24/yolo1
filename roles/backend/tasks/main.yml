@@ -1,0 +1,13 @@
+- name: Pull backend code
+  git:
+    repo: "{{ project_repo }}"
+    dest: /home/vagrant/backend
+    version: master
+
+- name: Build and run backend container
+  docker_container:
+    name: backend
+    image: python:3.9
+    command: "python app.py"
+    ports:
+      - "5000:5000"

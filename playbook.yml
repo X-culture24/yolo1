@@ -1,9 +1,27 @@
----
-- name: Ansible playbook to dockerize and run yolo e-commerce app using ansible
-  hosts: all
+- name: Set up e-commerce application
+  hosts: localhost
   become: true
-  roles: 
-    - frontend-deployment
-    - setup-mongodb   
-    - backend-deployment
-    
+  vars:
+    project_repo: "https://github.com/X-culture24/yolo.git"  # Replace with the actual repository URL
+  tasks:
+    - name: Install dependencies
+      apt:
+        name:
+          - python3-pip
+          - python3-venv
+        state: present
+
+    - name: Create virtual environment for Python
+      ansible.builtin.command: python3 -m venv /home/lawrence/venv
+      args:
+        creates: /home/lawrence/venv/bin/activate
+
+    - name: Install Docker SDK for Python in virtual environment
+      ansible.builtin.command: /home/lawrence/venv/bin/pip install docker
+      environment:
+        PATH: "/home/lawrence/venv/bin:{{ ansible_env.PATH }}"
+      
+  roles:
+    - frontend
+    - backend
+    - mongo

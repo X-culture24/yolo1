@@ -1,0 +1,6 @@
+docker_version: "20.10"
+project_repo: "https://github.com/X-culture24/yolo.git"
+app_ports:
+  frontend: 3000
+  backend: 5000
+  mongo: 27017

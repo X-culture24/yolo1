@@ -1,0 +1,13 @@
+- name: Pull frontend code
+  git:
+    repo: "{{ project_repo }}"
+    dest: /home/vagrant/frontend
+    version: master
+
+- name: Build and run frontend container
+  docker_container:
+    name: frontend
+    image: node:16
+    command: "npm start"
+    ports:
+      - "3001:3000"
