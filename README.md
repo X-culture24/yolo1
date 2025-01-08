@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Overview
 This project involved the containerization and deployment of a full-stack yolo application using Docker.
 
@@ -72,3 +73,6 @@ Deploy the resources:
 
 
 terraform apply
+=======
+# yolo1
+>>>>>>> origin/main
