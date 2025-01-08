@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+
+    networks:
+      - app-net
+
+  #Builds the backend Docker image and creates the backend microservice
+  brian-yolo-backend:
+    image: brianbwire/brian-yolo-backend:v1.0.0
+    build: ./backend
+    container_name: brian-yolo-backend
+    restart: always
+
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/yoloDB
+
+  frontend:
+    build:
+      context: ./frontend
+
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
