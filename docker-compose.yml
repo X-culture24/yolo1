@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: "3.8"
 services:
   app:
@@ -5,25 +6,51 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ecommerce_app
+=======
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
     ports:
       - "3000:3000"
     depends_on:
       - mongo
+<<<<<<< HEAD
     networks:
       - app-network
   mongo:
     image: mongo:5.0
     container_name: mongo
+=======
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/yoloDB
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:6.0
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+<<<<<<< HEAD
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
+=======
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
 
 volumes:
   mongo_data:

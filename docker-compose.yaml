@@ -5,6 +5,20 @@ services:
       context: ./backend
     ports:
       - "3000:3000"
+<<<<<<< HEAD
+=======
+
+    networks:
+      - app-net
+
+  #Builds the backend Docker image and creates the backend microservice
+  brian-yolo-backend:
+    image: brianbwire/brian-yolo-backend:v1.0.0
+    build: ./backend
+    container_name: brian-yolo-backend
+    restart: always
+
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
     depends_on:
       - mongo
     environment:
@@ -13,6 +27,10 @@ services:
   frontend:
     build:
       context: ./frontend
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
     ports:
       - "80:80"
     depends_on:

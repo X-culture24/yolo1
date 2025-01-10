@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
 # Overview
 This project involved the containerization and deployment of a full-stack yolo application using Docker.
 
@@ -17,6 +20,10 @@ Use vagrant up --provison command
 https://hooks.slack.com/services/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
 stage-1-Ansible/
 ├── Vagrantfile                # Vagrant configuration file
+<<<<<<< HEAD
+=======
+├── playbook.yml               # Ansible playbook to provision the application stack
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
 ├── roles/                     # Ansible roles
 │   ├── frontend/              # Role for frontend services
 │   │   ├── tasks/
@@ -27,6 +34,7 @@ stage-1-Ansible/
 │   ├── mongo/                 # Role for MongoDB services
 │       ├── tasks/
 │           └── main.yml
+<<<<<<< HEAD
 # Terraform AWS EC2 Instance Setup
 
 ## Overview
@@ -76,3 +84,5 @@ terraform apply
 =======
 # yolo1
 >>>>>>> origin/main
+=======
+>>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
