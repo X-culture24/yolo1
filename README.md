@@ -1,88 +1,26 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
-# Overview
-This project involved the containerization and deployment of a full-stack yolo application using Docker.
+# E-Commerce Dockerized Application
 
-
-# Requirements
-Install the docker engine here:
-- [Docker](https://docs.docker.com/engine/install/) 
-
-## How to launch the application 
-
-
-![Alt text](image.png)
-
-## How to run the app
-Use vagrant up --provison command
-https://hooks.slack.com/services/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
-stage-1-Ansible/
-├── Vagrantfile                # Vagrant configuration file
-<<<<<<< HEAD
-=======
-├── playbook.yml               # Ansible playbook to provision the application stack
->>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
-├── roles/                     # Ansible roles
-│   ├── frontend/              # Role for frontend services
-│   │   ├── tasks/
-│   │   │   └── main.yml
-│   ├── backend/               # Role for backend services
-│   │   ├── tasks/
-│   │   │   └── main.yml
-│   ├── mongo/                 # Role for MongoDB services
-│       ├── tasks/
-│           └── main.yml
-<<<<<<< HEAD
-# Terraform AWS EC2 Instance Setup
-
-## Overview
-This project uses Terraform to provision and configure an Ubuntu EC2 instance on AWS.
+This project is a fully containerized e-commerce web application with functionality to add and manage products. The app is built using Node.js, MongoDB, and Docker to create an efficient, scalable, and portable setup. This `README` includes detailed instructions for building, running, and understanding the application.
 
 ---
 
 ## Features
-- Provision an Ubuntu EC2 instance in the **us-east-1** region.
-- Automated system updates using Terraform provisioners.
-- 
+- **Product Management**: Add and view products using a form.
+- **Containerization**: The app uses Docker for ease of deployment and scalability.
+- **Persistent Data**: MongoDB is used for database persistence.
+- **Docker Compose**: Orchestrates multiple containers seamlessly.
+
 ---
 
 ## Prerequisites
-1. **Terraform** installed on your local machine.
-   - [Terraform Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-
-
+Ensure the following tools are installed on your machine:
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ---
 
-Deployment Steps
-1. Initialize Terraform
-Run the following command to initialize the Terraform project:
-
-
-
-terraform init
-2. Validate the Configuration
-Ensure the configuration files are correct:
-
-
-
-terraform validate
-3. Create a Terraform Plany
-Generate an execution plan to review the changes:
-
-
-
-terraform plan
-4. Apply the Terraform Plan
-Deploy the resources:
-
-
-
-terraform apply
-=======
-# yolo1
->>>>>>> origin/main
-=======
->>>>>>> aa4b10f75c88d9b2633ae325d4c583f2a8ad6770
+## Setup Instructions 
+##build the docker image with "docker-compose build"
+##run the docker image with docker-compose up
+##the app runs at localhost:3000
+##
