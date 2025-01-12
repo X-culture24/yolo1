@@ -1,0 +1,17 @@
+---
+- name: Install required packages
+  apt:
+    name: [nginx, git]
+    state: present
+
+- name: Configure Nginx
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Restart Nginx
+
+handlers:
+  - name: Restart Nginx
+    service:
+      name: nginx
+      state: restarted

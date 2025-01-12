@@ -1,0 +1,11 @@
+---
+- name: Setup e-commerce application
+  hosts: all
+  become: yes
+  vars_files:
+    - vars.yml
+
+  roles:
+    - frontend
+    - backend
+    - db

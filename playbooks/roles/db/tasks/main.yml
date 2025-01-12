@@ -1,0 +1,17 @@
+---
+- name: Install MySQL
+  apt:
+    name: mysql-server
+    state: present
+
+- name: Configure database
+  mysql_db:
+    name: ecommerce_db
+    state: present
+
+- name: Add MySQL user
+  mysql_user:
+    name: ecommerce_user
+    password: password123
+    priv: 'ecommerce_db.*:ALL'
+    state: present
