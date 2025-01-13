@@ -15,9 +15,15 @@ This project is a fully containerized e-commerce web application with functional
 ## Prerequisites
 Ensure the following tools are installed on your machine:
 - [Docker](https://www.docker.com/products/docker-desktop)
-- [Docker Compose](https://docs.docker.com/compose/)
+
 
 ---
+
+![alt text](<Screenshot from 2025-01-13 19-34-17.png>)
+
+
+#  pushed my image to dockerhub repo: lawren/ecommerce_app
+
 
 ## Setup Instructions 
 ##build the docker image with "docker-compose build"
